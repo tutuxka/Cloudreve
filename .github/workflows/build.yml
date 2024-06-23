@@ -26,6 +26,12 @@ jobs:
         with:
           distribution: goreleaser
           version: latest
-          args: release --clean --skip-validate
+          args: release --clean  --snapshot
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+
+      - name: Archive files
+        uses: actions/upload-artifact@v2
+        with:
+          name: compressed-files
+          path: dist/*
