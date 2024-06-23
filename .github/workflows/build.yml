@@ -1,6 +1,10 @@
 name: Build
 
-on: workflow_dispatch
+on: 
+ push:
+    tags:
+      - 'v0.*'
+      - 'draft-*'
 
 jobs:
   build:
@@ -41,3 +45,10 @@ jobs:
         with:
           name: linux
           path: dist/*.gz
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files:  dist/*
+          draft: true
+          fail_on_unmatched_files: true
