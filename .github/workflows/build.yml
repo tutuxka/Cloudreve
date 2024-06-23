@@ -29,18 +29,9 @@ jobs:
           args: release --clean  --snapshot
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-
-      - name: Build and Release
-        uses: goreleaser/goreleaser-action@v4
-        with:
-          distribution: goreleaser
-          version: latest
-          args: release --rm-dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-
+          
       - name: Archive files
         uses: actions/upload-artifact@v2
         with:
           name: compressed-files
-          path: dist/*
+          path: dist/*.zip
