@@ -41,8 +41,3 @@ jobs:
         with:
           name: linux
           path: dist/*.gz
-
-      - name: Upload assets
-        uses: softprops/action-gh-release@v1
-        with:
-          files: dist/*
