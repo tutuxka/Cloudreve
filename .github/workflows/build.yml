@@ -3,8 +3,7 @@ name: Build
 on: 
  push:
     tags:
-      - 'v0.*'
-      - 'draft-*'
+      - 'v3.*'
 
 jobs:
   build:
