@@ -33,8 +33,14 @@ jobs:
       - name: Archive files
         uses: actions/upload-artifact@v2
         with:
-          name: compressed-files
+          name: windows
           path: dist/*.zip
+
+      - name: Archive files
+        uses: actions/upload-artifact@v2
+        with:
+          name: linux
+          path: dist/*.gz
 
       - name: Upload assets
         uses: softprops/action-gh-release@v1
